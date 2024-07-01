@@ -1,13 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Task Detail</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>{{ task.title }}</h1>
-    <p>{{ task.description }}</p>
-    <p>Done: {{ task.done }}</p>
-    <a href="{% url 'task_edit' task.id %}">Edit</a>
-    <a href="{% url 'task_delete' task.id %}">Delete</a>
+    <div class="container">
+        <h1>{{ task.title }}</h1>
+        <p class="message">{{ task.description }}</p>
+        <p><strong>Status:</strong> {% if task.done %}Done{% else %}Not Done{% endif %}</p>
+        <a href="{% url 'task_edit' task.id %}" class="btn">Edit</a>
+        <a href="{% url 'task_list' %}" class="btn">Back to List</a>
+    </div>
 </body>
 </html>

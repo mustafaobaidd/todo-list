@@ -1,0 +1,124 @@
+/* tasks/static/css/styles.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+a, button {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #007BFF;
+    transition: background 0.3s;
+    display: inline-block;
+    margin: 5px 0;
+}
+
+a:hover, button:hover {
+    background: #0056b3;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 15px;
+    background: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+li:hover {
+    background: #e9e9e9;
+}
+
+.done {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input, form textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+form button {
+    align-self: flex-end;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #e0e0e0;
+}
+
+/* New styles for delete confirmation buttons */
+.btn.delete-btn {
+    background-color: #dc3545;
+}
+
+.btn.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.btn.cancel-btn {
+    background-color: #6c757d;
+}
+
+.btn.cancel-btn:hover {
+    background-color: #5a6268;
+}
+
+/* Adjust form buttons for delete confirmation */
+.delete-form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}

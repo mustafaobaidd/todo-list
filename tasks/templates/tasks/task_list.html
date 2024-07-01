@@ -1,18 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Task List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>Task List</h1>
-    <a href="{% url 'task_create' %}">Add New Task</a>
-    <ul>
-        {% for task in tasks %}
-        <li>
-            <a href="{% url 'task_detail' task.id %}">{{ task.title }}</a>
-            {% if task.done %} (Done) {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <h1>Task List</h1>
+        <a href="{% url 'task_create' %}" class="btn">Add New Task</a>
+        <ul>
+            {% for task in tasks %}
+            <li class="{% if task.done %}done{% endif %}">
+                <span>{{ task.title }}</span>
+                <div class="task-actions">
+                    <a href="{% url 'task_detail' task.id %}" class="btn">Details</a>
+                    <a href="{% url 'task_edit' task.id %}" class="btn">Edit</a>
+                    <a href="{% url 'task_delete' task.id %}" class="btn">Delete</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>

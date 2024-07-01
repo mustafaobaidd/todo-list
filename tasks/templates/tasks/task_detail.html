@@ -1,23 +1,18 @@
-<!-- tasks/templates/tasks/task_confirm_delete.html -->
+<!-- tasks/templates/tasks/task_detail.html -->
 {% extends 'base.html' %}
-{% load custom_tags %}  
 
-{% block title %}Delete Task{% endblock %}
+{% block title %}Task Detail{% endblock %}
 
 {% block content %}
 <div class="card">
     <div class="card-header">
-        <h1>Delete Task</h1>
+        <h1>{{ task.title }}</h1>
     </div>
     <div class="card-body">
-        <p>Are you sure you want to delete "{{ task.title }}"?</p>
-        <form method="post">
-            {% csrf_token %}
-            <div class="form-group">
-                <button type="submit" class="btn btn-danger">Yes, delete</button>
-                <a href="{% url 'task_list' %}" class="btn btn-secondary">Cancel</a>
-            </div>
-        </form>
+        <p class="card-text">{{ task.description }}</p>
+        <p class="card-text"><strong>Status:</strong> {% if task.done %}Done{% else %}Not Done{% endif %}</p>
+        <a href="{% url 'task_edit' task.id %}" class="btn btn-warning">Edit</a>
+        <a href="{% url 'task_list' %}" class="btn btn-secondary">Back to List</a>
     </div>
 </div>
 {% endblock %}

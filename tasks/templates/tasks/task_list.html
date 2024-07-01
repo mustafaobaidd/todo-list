@@ -4,7 +4,7 @@
 {% block title %}Task List{% endblock %}
 
 {% block content %}
-<h1 class="text-center">Task List</h1>
+<h1 class="text-center mb-4">Task List</h1>
 <a href="{% url 'task_create' %}" class="btn btn-primary mb-3">Add New Task</a>
 <div class="row">
     {% for task in tasks %}

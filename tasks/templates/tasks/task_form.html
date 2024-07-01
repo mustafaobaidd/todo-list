@@ -1,6 +1,6 @@
 <!-- tasks/templates/tasks/task_form.html -->
 {% extends 'base.html' %}
-{% load custom_tags %} 
+{% load custom_tags %}
 
 {% block title %}{% if form.instance.pk %}Edit Task{% else %}New Task{% endif %}{% endblock %}
 
@@ -20,9 +20,9 @@
                 {{ form.description.label_tag }}
                 {{ form.description|add_class:"form-control" }}
             </div>
-            <div class="form-group form-check">
-                {{ form.done|add_class:"form-check-input" }}
+            <div class="form-group d-flex align-items-center">
                 {{ form.done.label_tag }}
+                {{ form.done|add_class:"ml-2 mb-1" }}
             </div>
             <button type="submit" class="btn btn-success">{% if form.instance.pk %}Update{% else %}Create{% endif %} Task</button>
         </form>

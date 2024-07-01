@@ -67,7 +67,7 @@ li:hover {
 li.done {
     text-decoration: line-through;
     color: gray;
-    background-color: #d4edda;
+    background-color: #edd4d4;
     transform: scale(1.02);
 }
 

@@ -1,9 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const taskItems = document.querySelectorAll('li');
+// tasks/static/js/scripts.js
 
-    taskItems.forEach(item => {
-        item.addEventListener('click', function() {
-            item.classList.toggle('done');
-        });
+document.addEventListener('DOMContentLoaded', function() {
+    const taskList = document.querySelector('ul');
+
+    taskList.addEventListener('click', function(event) {
+        if (event.target.tagName === 'LI') {
+            event.target.classList.toggle('done');
+        }
     });
 });

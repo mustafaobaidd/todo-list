@@ -11,7 +11,7 @@
         <p>Are you sure you want to delete "{{ task.title }}"?</p>
         <form method="post">
             {% csrf_token %}
-            <div class="button-group">
+            <div class="delete-form-buttons">
                 <button type="submit" class="btn delete-btn">Yes, delete</button>
                 <a href="{% url 'task_list' %}" class="btn cancel-btn">Cancel</a>
             </div>

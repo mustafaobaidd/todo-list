@@ -1,17 +1,23 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Task Detail</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-</head>
-<body>
-    <div class="container">
-        <h1>{{ task.title }}</h1>
-        <p class="message">{{ task.description }}</p>
-        <p><strong>Status:</strong> {% if task.done %}Done{% else %}Not Done{% endif %}</p>
-        <a href="{% url 'task_edit' task.id %}" class="btn">Edit</a>
-        <a href="{% url 'task_list' %}" class="btn">Back to List</a>
+<!-- tasks/templates/tasks/task_confirm_delete.html -->
+{% extends 'base.html' %}
+{% load custom_tags %}  
+
+{% block title %}Delete Task{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1>Delete Task</h1>
     </div>
-</body>
-</html>
+    <div class="card-body">
+        <p>Are you sure you want to delete "{{ task.title }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <button type="submit" class="btn btn-danger">Yes, delete</button>
+                <a href="{% url 'task_list' %}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

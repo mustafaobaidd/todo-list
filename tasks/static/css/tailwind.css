@@ -1,0 +1,4 @@
+/* tasks/static/css/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

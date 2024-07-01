@@ -1,17 +1,22 @@
+<!-- tasks/templates/tasks/task_detail.html -->
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Detail</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <h1>{{ task.title }}</h1>
-        <p class="message">{{ task.description }}</p>
-        <p><strong>Status:</strong> {% if task.done %}Done{% else %}Not Done{% endif %}</p>
-        <a href="{% url 'task_edit' task.id %}" class="btn">Edit</a>
-        <a href="{% url 'task_list' %}" class="btn">Back to List</a>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto max-w-xl bg-white p-8 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold mb-4 text-center text-blue-600">{{ task.title }}</h1>
+        <p class="mb-4 text-gray-700">{{ task.description }}</p>
+        <p class="mb-4 text-lg"><strong>Status:</strong> {% if task.done %}<span class="text-green-600">Done</span>{% else %}<span class="text-red-600">Not Done</span>{% endif %}</p>
+        <div class="flex justify-between">
+            <a href="{% url 'task_edit' task.id %}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Edit</a>
+            <a href="{% url 'task_list' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Back to List</a>
+        </div>
     </div>
 </body>
 </html>

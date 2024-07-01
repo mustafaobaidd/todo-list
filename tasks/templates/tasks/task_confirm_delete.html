@@ -1,20 +1,21 @@
+<!-- tasks/templates/tasks/task_confirm_delete.html -->
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete Task</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <h1>Delete Task</h1>
-        <p>Are you sure you want to delete "{{ task.title }}"?</p>
-        <form method="post">
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto max-w-xl bg-white p-8 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold mb-4 text-center text-red-600">Delete Task</h1>
+        <p class="mb-4 text-gray-700">Are you sure you want to delete "{{ task.title }}"?</p>
+        <form method="post" class="flex space-x-4 justify-center">
             {% csrf_token %}
-            <div class="delete-form-buttons">
-                <button type="submit" class="btn delete-btn">Yes, delete</button>
-                <a href="{% url 'task_list' %}" class="btn cancel-btn">Cancel</a>
-            </div>
+            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Yes, delete</button>
+            <a href="{% url 'task_list' %}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Cancel</a>
         </form>
     </div>
 </body>
